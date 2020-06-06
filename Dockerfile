@@ -1,18 +1,17 @@
-FROM python:3.8-slim
+FROM golang:alpine
 
-LABEL "maintainer"="Ansible by Red Hat <info@ansible.com>"
-LABEL "repository"="https://github.com/ansible/ansible-lint-action"
-LABEL "homepage"="https://github.com/ansible/ansible-lint-action"
+LABEL "maintainer"="dadav <dadav@protonmail.com>"
+LABEL "repository"="https://github.com/dadav/jsonnet-lint-action"
+LABEL "homepage"="https://github.com/dadav/jsonnet-lint-action"
 
-LABEL "com.github.actions.name"="ansible-lint"
-LABEL "com.github.actions.description"="Run Ansible Lint"
+LABEL "com.github.actions.name"="jsonnet-lint"
+LABEL "com.github.actions.description"="Run Jsonnet Lint"
 LABEL "com.github.actions.icon"="activity"
 LABEL "com.github.actions.color"="gray-dark"
 
-# Install git (required by ansible-lint)
-RUN set -ex && apt-get update && apt-get -q install -y -V git && rm -rf /var/lib/apt/lists/*
-
-RUN pip install ansible-lint
+# Install jsonnet-lint
+RUN apk add --no-cache git bash\
+    && go get github.com/google/go-jsonnet/linter/jsonnet-lint
 
 COPY entrypoint.sh /entrypoint.sh
 
