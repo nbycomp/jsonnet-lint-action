@@ -13,7 +13,9 @@ jsonnet::lint() {
 
   # Enable recursive glob patterns, such as '**/*.jsonnet'.
   shopt -s globstar
-  jsonnet-lint ${TARGETS}
+  for tolint in ${TARGETS}; do
+    jsonnet-lint "${tolint}"
+  done
   shopt -u globstar
 }
 
