@@ -2,6 +2,10 @@ name: Jsonnet Lint
 description: Run Jsonnet Lint
 author: dadav <dadav@protonmail.com>
 
+branding:
+  icon: 'activity'
+  color: 'gray-dark'
+
 inputs:
   targets:
     description: |
