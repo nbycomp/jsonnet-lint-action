@@ -11,7 +11,7 @@ LABEL "com.github.actions.color"="gray-dark"
 
 # Install jsonnet-lint
 RUN apk add --no-cache git bash\
-    && go get github.com/google/go-jsonnet/cmd/jsonnet-lint@master
+    && go install github.com/google/go-jsonnet/cmd/jsonnet-lint@latest
 
 COPY entrypoint.sh /entrypoint.sh
 
