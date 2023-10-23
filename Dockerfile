@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.20.10-alpine3.17
 
 LABEL "maintainer"="dadav <dadav@protonmail.com>"
 LABEL "repository"="https://github.com/nbycomp/jsonnet-lint-action"
